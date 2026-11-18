@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quran Tutor | ഖുർആൻ പഠനം</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,"Noto Sans Malayalam",sans-serif;
+    color:#18352d;
+    background:#f7faf7;
+    line-height:1.7;
+}
+
+/* HEADER */
+header{
+    background:#075b43;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px #0003;
+}
+
+nav{
+    max-width:1150px;
+    margin:auto;
+    padding:14px 22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:18px;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#f1c75b;
+}
+
+/* HERO */
+.hero{
+    background:
+    linear-gradient(135deg,#075b43dd,#168264dd),
+    url("https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    padding:105px 22px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:46px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:750px;
+    margin:0 auto 28px;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    background:#f1c75b;
+    color:#17382f;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+    border:none;
+    cursor:pointer;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px #0003;
+}
+
+/* SECTIONS */
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:70px 22px;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:38px;
+}
+
+.title h2{
+    font-size:30px;
+    color:#075b43;
+}
+
+.title p{
+    color:#63746e;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:22px;
+}
+
+.card{
+    background:white;
+    padding:27px;
+    border-radius:17px;
+    box-shadow:0 5px 20px #075b4312;
+    border:1px solid #e1ece7;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px #075b4525;
+}
+
+.card .icon{
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+.card h3{
+    color:#075b43;
+    margin-bottom:8px;
+}
+
+/* QURAN UNDERSTANDING */
+.quran-section{
+    background:#eaf5ef;
+    max-width:none;
+}
+
+.quran-inner{
+    max-width:1100px;
+    margin:auto;
+}
+
+/* PROGRESS */
+.progress{
+    background:#075b43;
+    max-width:none;
+    color:white;
+}
+
+.progress .title h2,
+.progress .title p{
+    color:white;
+}
+
+.progress .card{
+    color:#18352d;
+}
+
+/* STEPS */
+.steps{
+    max-width:850px;
+    margin:auto;
+}
+
+.step{
+    display:flex;
+    gap:18px;
+    margin:18px 0;
+    background:white;
+    padding:20px;
+    border-radius:13px;
+    box-shadow:0 3px 12px #0000000d;
+}
+
+.num{
+    min-width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#075b43;
+    color:white;
+    display:grid;
+    place-items:center;
+    font-weight:bold;
+}
+
+/* ADMISSION */
+#admission{
+    background:#f0f7f3;
+    max-width:none;
+}
+
+#admission .title,
+#admission form{
+    max-width:650px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+form{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 5px 22px #00000012;
+}
+
+label{
+    font-weight:bold;
+    display:block;
+    margin-top:5px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px;
+    margin:7px 0 15px;
+    border:1px solid #ccd9d4;
+    border-radius:9px;
+    font:inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border-color:#075b43;
+}
+
+button{
+    width:100%;
+    border:0;
+    cursor:pointer;
+    background:#075b43;
+    color:white;
+    padding:13px 24px;
+    border-radius:25px;
+    font-weight:bold;
+    font-size:16px;
+}
+
+button:hover{
+    background:#064936;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+}
+
+.contact-info{
+    margin:25px auto;
+    max-width:600px;
+}
+
+.contact-box{
+    background:white;
+    padding:20px;
+    margin:12px 0;
+    border-radius:12px;
+    box-shadow:0 3px 12px #0000000d;
+}
+
+.whatsapp{
+    background:#25D366;
+    color:white;
+}
+
+.whatsapp:hover{
+    background:#1da851;
+}
+
+/* FOOTER */
+footer{
+    background:#123c31;
+    color:#dbe9e3;
+    text-align:center;
+    padding:28px;
+}
+
+footer p{
+    margin:4px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    nav{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav div:last-child{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:8px;
+    }
+
+    nav a{
+        margin:0 4px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .hero{
+        padding:75px 18px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:50px 18px;
+    }
+
+    .title h2{
+        font-size:25px;
+    }
+
+    form{
+        padding:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+<nav>
+
+<div class="logo">
+☪ Quran Tutor
+</div>
+
+<div>
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#progress">Progress</a>
+<a href="#admission">Admission</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<h1>
+ഖുർആൻ പഠിക്കാം,<br>
+ജീവിതത്തിൽ പകർത്താം
+</h1>
+
+<p>
+ശരിയായ ഉച്ചാരണം, തജ്‌വീദ്, ഖുർആൻ വായന
+എന്നിവ ലളിതവും ക്രമബദ്ധവുമായി പഠിക്കാം.
+</p>
+
+<a class="btn" href="#admission">
+📝 ഇപ്പോൾ രജിസ്റ്റർ ചെയ്യുക
+</a>
+
+</section>
+
+
+<!-- COURSES -->
+<section id="courses">
+
+<div class="title">
+
+<h2>📚 ഞങ്ങളുടെ കോഴ്സുകൾ</h2>
+
+<p>
+വിദ്യാർത്ഥിയുടെ നിലവാരത്തിന് അനുസരിച്ചുള്ള പഠനം
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">📖</div>
+
+<h3>നൂറാനി ഖാഇദ</h3>
+
+<p>
+അറബി അക്ഷരങ്ങൾ, ഹറകാത്ത്, തൻവീൻ,
+സുകൂൻ, ശദ്ദ, മദ്ദ് എന്നിവയുടെ അടിസ്ഥാന പഠനം.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🕌</div>
+
+<h3>ഖുർആൻ വായന</h3>
+
+<p>
+അക്ഷരങ്ങളും വാക്കുകളും ശരിയായി ചേർത്ത്
+ഖുർആൻ fluency-യോടെ വായിക്കാൻ പരിശീലനം.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">✨</div>
+
+<h3>തജ്‌വീദ്</h3>
+
+<p>
+മഖാരിജുൽ ഹുറൂഫ്, സിഫാത്തുൽ ഹുറൂഫ്,
+നൂൻ സാകിന, മീം സാകിന, മദ്ദ്, ഖൽഖല എന്നിവ.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROGRESS -->
+<section class="progress" id="progress">
+
+<div class="title">
+
+<h2>📊 Student Progress</h2>
+
+<p>
+ഓരോ വിദ്യാർത്ഥിയുടെയും പുരോഗതി
+ക്രമമായി നിരീക്ഷിക്കുന്നു.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h3>📅 Attendance</h3>
+
+<p>
+ക്ലാസിലെ ഹാജർ രേഖപ്പെടുത്തൽ.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📖 Reading Test</h3>
+
+<p>
+ഖുർആൻ വായനയും ഉച്ചാരണവും പരിശോധിക്കൽ.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📝 Monthly Assessment</h3>
+
+<p>
+മാസാന്ത്യ വിലയിരുത്തലും feedback-ഉം.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LEARNING METHOD -->
+<section>
+
+<div class="title">
+
+<h2>👨‍🏫 പഠനരീതി</h2>
+
+<p>
+ക്രമമായ പഠനത്തിലൂടെ മികച്ച പുരോഗതി
+</p>
+
+</div>
+
+
+<div class="steps">
+
+<div class="step">
+
+<div class="num">1</div>
+
+<div>
+
+<b>Level Assessment</b>
+
+<br>
+
+വിദ്യാർത്ഥിയുടെ നിലവാരം ആദ്യം പരിശോധിക്കുന്നു.
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="num">2</div>
+
+<div>
+
+<b>Personal Learning Plan</b>
+
+<br>
+
+നിലവാരത്തിന് അനുസരിച്ച് പഠനപദ്ധതി തയ്യാറാക്കുന്നു.
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="num">3</div>
+
+<div>
+
+<b>Regular Practice</b>
+
+<br>
+
+ഖുർആൻ വായനയും തജ്‌വീദും സ്ഥിരമായി പരിശീലിക്കുന്നു.
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="num">4</div>
+
+<div>
+
+<b>Assessment & Feedback</b>
+
+<br>
+
+പുരോഗതി പരിശോധിച്ച് ആവശ്യമായ നിർദ്ദേശങ്ങൾ നൽകുന്നു.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ADMISSION -->
+<section id="admission">
+
+<div class="title">
+
+<h2>📝 Admission</h2>
+
+<p>
+താഴെയുള്ള ഫോം പൂരിപ്പിച്ച് ക്ലാസിനായി രജിസ്റ്റർ ചെയ്യാം.
+</p>
+
+</div>
+
+
+<form onsubmit="submitForm(event)">
+
+<label>
+വിദ്യാർത്ഥിയുടെ പേര്
+</label>
+
+<input
+id="name"
+required
+placeholder="പേര്">
+
+
+<label>
+വയസ്സ്
+</label>
+
+<input
+id="age"
+type="number"
+required
+placeholder="വയസ്സ്">
+
+
+<label>
+കോഴ്സ്
+</label>
+
+<select id="course" required>
+
+<option value="">
+തിരഞ്ഞെടുക്കുക
+</option>
+
+<option>
+നൂറാനി ഖാഇദ
+</option>
+
+<option>
+ഖുർആൻ വായന
+</option>
+
+<option>
+തജ്‌വീദ്
+</option>
+
+</select>
+
+
+<label>
+Phone / WhatsApp
+</label>
+
+<input
+id="phone"
+type="tel"
+required
+placeholder="Phone number">
+
+
+<label>
+കൂടുതൽ വിവരങ്ങൾ
+</label>
+
+<textarea
+id="message"
+rows="4"
+placeholder="എന്തെങ്കിലും അറിയിക്കാനുണ്ടെങ്കിൽ...">
+</textarea>
+
+
+<button type="submit">
+📲 WhatsApp വഴി രജിസ്റ്റർ ചെയ്യുക
+</button>
+
+<p
+id="result"
+style="margin-top:15px;font-weight:bold;text-align:center">
+</p>
+
+</form>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+<div class="title">
+
+<h2>📞 Contact Us</h2>
+
+<p>
+ക്ലാസിന്റെ സമയം, ഫീസ്, മറ്റ് വിവരങ്ങൾ എന്നിവയ്ക്കായി ബന്ധപ്പെടുക.
+</p>
+
+</div>
+
+
+<div class="contact-info">
+
+<div class="contact-box">
+
+📱 <b>WhatsApp</b>
+
+<br>
+
++91 9446807161
+
+</div>
+
+
+<div class="contact-box">
+
+📧 <b>Email</b>
+
+<br>
+
+abdulvadhoods4@gmail.com
+
+</div>
+
+</div>
+
+
+<a
+class="btn whatsapp"
+href="https://wa.me/9446807161"
+target="_blank">
+
+💬 WhatsApp ചെയ്യുക
+
+</a>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>
+☪ <b>Quran Tutor</b>
+</p>
+
+<p>
+Learn Quran with understanding
+</p>
+
+<p>
+© 2026 Quran Tutor. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+function submitForm(e){
+
+e.preventDefault();
+
+const name =
+document.getElementById("name").value;
+
+const age =
+document.getElementById("age").value;
+
+const course =
+document.getElementById("course").value;
+
+const phone =
+document.getElementById("phone").value;
+
+const message =
+document.getElementById("message").value;
+
+const whatsappNumber =
+"9446807161";
+
+const text =
+"Assalamu Alaikum,%0A%0A"+
+"Quran Tutor Admission Request%0A%0A"+
+"Student Name: "+encodeURIComponent(name)+"%0A"+
+"Age: "+encodeURIComponent(age)+"%0A"+
+"Course: "+encodeURIComponent(course)+"%0A"+
+"Phone: "+encodeURIComponent(phone)+"%0A"+
+"Message: "+encodeURIComponent(message);
+
+const whatsappURL =
+"https://wa.me/"+whatsappNumber+
+"?text="+text;
+
+document.getElementById("result").textContent =
+"WhatsApp തുറക്കുന്നു...";
+
+window.open(whatsappURL,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
